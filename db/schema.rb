@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121093932) do
+ActiveRecord::Schema.define(:version => 20130121135948) do
 
   create_table "movies", :force => true do |t|
     t.string   "title"
     t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "author"
+    t.string   "cast"
+    t.string   "movie_type"
+    t.date     "pubdate"
+    t.string   "country"
+    t.string   "language"
+    t.integer  "movie_duration"
+    t.string   "movie_edition"
+    t.float    "rating"
+    t.text     "summary"
   end
 
 end

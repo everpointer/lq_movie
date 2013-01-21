@@ -1,2 +1,8 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<ul>
+   <% @current_movie.attributes.each do |attribute| %>
+      <li>
+        <%= attribute[0] %>:
+        <%= attribute[1] %>
+      </li>
+   <% end %>
+</ul>
