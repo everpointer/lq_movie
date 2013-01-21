@@ -1,7 +1,17 @@
 LqMovie::Application.routes.draw do
+  get "movies/index"
+
+  get "movies/show"
+
+  get "movie/index"
+
+  get "movie/show"
+
   get "index/index"
 
   root to: "index#index" 
+
+  resources :movies
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

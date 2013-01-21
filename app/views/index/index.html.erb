@@ -1,7 +1,7 @@
 <ul>
     <%= content_tag_for(:li, @screening_movies) do |movie| %>
+         <%= image_tag movie.image, alt: movie.title %>
          <%= movie.title %>
-         <%= movie.image %>
-         <%= link_to "选座购票" %>
+         <%= link_to "选座购票", movie_path(movie) %>
     <% end %>
 </ul>
