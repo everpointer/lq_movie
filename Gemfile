@@ -29,6 +29,7 @@ group :test, :development do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'spork'
 end
 
 group :test do
