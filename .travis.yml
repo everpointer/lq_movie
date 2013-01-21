@@ -1,0 +1,20 @@
+bundler_args: --without production development #rails-dev-boost: invalid byte sequence in US-ASCI
+
+rvm: 1.9.3
+
+# request headless test
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
+script:
+  - "cp config/database.yml.example.mysql config/database.yml 2>&1"
+  - "time bundle exec rake db:drop db:create db:schema:load --trace 2>&1"
+  - "bundle exec rspec spec"
+
+env:
+  - UNIT_TEST=1
+  - INTEGRATE_TEST=1
+  - INTEGRATE_TEST=2
+  - INTEGRATE_TEST=3
+  - INTEGRATE_TEST=4
