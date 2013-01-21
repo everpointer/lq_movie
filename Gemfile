@@ -29,7 +29,13 @@ group :test, :development do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+end
+
+group :development do
   gem 'spork'
+  gem 'guard-spork'
+  # guard-rspec dependencies
+  gem 'rb-fsevent', '~> 0.9.1'
 end
 
 group :test do
