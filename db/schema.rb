@@ -18,15 +18,15 @@ ActiveRecord::Schema.define(:version => 20130121135948) do
     t.string   "image"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.string   "author"
-    t.string   "cast"
-    t.string   "movie_type"
-    t.date     "pubdate"
-    t.string   "country"
-    t.string   "language"
+    t.text     "director"
+    t.text     "cast"
+    t.text     "movie_type"
+    t.text     "pubdate"
+    t.text     "country"
+    t.text     "language"
     t.integer  "movie_duration"
-    t.string   "movie_edition"
-    t.float    "rating"
+    t.text     "movie_edition"
+    t.text     "rating"
     t.text     "summary"
   end
 
