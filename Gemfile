@@ -35,15 +35,15 @@ group :test, :development do
 end
 
 group :development do
-  gem 'spork'
-  gem 'guard-spork'
-  # guard-rspec dependencies
-  gem 'rb-fsevent', '~> 0.9.1'
 end
 
 group :test do
   # make selenium work travis-ci xvfb
   #gem "selenium-webdriver", "~> 2.72.2"
+  gem 'spork'
+  gem 'guard-spork'
+  # guard-rspec dependencies
+  gem 'rb-fsevent', '~> 0.9.1'
 end
 
 group :production do
