@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121135948) do
+ActiveRecord::Schema.define(:version => 20130122082814) do
 
   create_table "movies", :force => true do |t|
     t.string   "title"
     t.string   "image"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.text     "director"
     t.text     "cast"
     t.text     "movie_type"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20130121135948) do
     t.text     "movie_edition"
     t.text     "rating"
     t.text     "summary"
+    t.string   "douban_id",      :limit => 32
+    t.boolean  "is_screening",                 :default => false
   end
 
 end

@@ -8,7 +8,10 @@ class Movie < ActiveRecord::Base
   serialize :movie_edition, Array
   serialize :rating, Hash
 
-  attr_accessible :image, :title
+  attr_accessible :image, :title, :image, :director, :cast, :movie_type, :pubdate,
+    :country, :language, :movie_duration, :movie_edition, :rating, :summary, :douban_id, :is_screening
+
+  scope :screening, where("is_screening = ?", true)
 
   def join(column)
     if self[column].instance_of?(Array)
@@ -16,5 +19,9 @@ class Movie < ActiveRecord::Base
     else
       self[column]
     end
+  end
+
+  def self.reset_screening
+    Movie.screening.update_all("is_screening = false")
   end
 end

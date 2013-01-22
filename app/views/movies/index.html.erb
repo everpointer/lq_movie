@@ -1,4 +1,4 @@
-<h2><%= @current_movie.title %></h2>
+<h2><%= @current_movie.title[0] %></h2>
 <dl>
   <dt>首映</dt>
   <dd><%= @current_movie.join(:pubdate) %></dd>
@@ -19,7 +19,7 @@
   <dd><%= @current_movie.join(:cast) %></dd>
 </dl>
 
-<h3><%= @current_movie.title %>的剧情简介</h3>
+<h3><%= @current_movie.title[0] %>的剧情简介</h3>
 <blockquote>
   <%= @current_movie.summary %> 
 </blockquote>
