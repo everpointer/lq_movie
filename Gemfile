@@ -15,7 +15,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  unless ENV["CI"]
+    gem 'therubyracer', :platform => :ruby
+  end
 
   gem 'uglifier', '>= 1.0.3'
   gem "less-rails"
@@ -31,6 +33,7 @@ group :test, :development do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'pry-rails'
 end
 
 group :development do
