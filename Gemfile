@@ -43,7 +43,6 @@ end
 group :test do
   # make selenium work travis-ci xvfb
   #gem "selenium-webdriver", "~> 2.72.2"
-  gem 'libv8', '~> 3.11.8'
 end
 
 group :production do
