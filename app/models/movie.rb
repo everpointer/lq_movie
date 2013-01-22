@@ -9,4 +9,12 @@ class Movie < ActiveRecord::Base
   serialize :rating, Hash
 
   attr_accessible :image, :title
+
+  def join(column)
+    if self[column].instance_of?(Array)
+      self[column].join('/')
+    else
+      self[column]
+    end
+  end
 end

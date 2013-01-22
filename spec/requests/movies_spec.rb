@@ -8,8 +8,9 @@ describe "Movies" do
 
     it "should view a movie" do
       movie.attributes.each do |attribute|
-        page.should have_content(attribute[0])
-        page.should have_content(attribute[1])
+        if attribute[1].instance_of?(Array)
+          page.should have_content(movie.join(attribute[0]))
+        end
       end
     end
   end

@@ -1,6 +1,25 @@
-<ul>
-   <%= content_tag_for(:li, @current_movie.attributes) do |attribute| %>
-      <%= attribute[0] %>:
-      <%= attribute[1] %>
-   <% end %>
-</ul>
+<h2><%= @current_movie.title %></h2>
+<dl>
+  <dt>首映</dt>
+  <dd><%= @current_movie.join(:pubdate) %></dd>
+
+  <dt>语言</dt>
+  <dd><%= @current_movie.join(:language) %></dd>
+  <dt>地区</dt>
+  <dd><%= @current_movie.join(:country) %></dd>
+  <dt>片长</dt>
+  <dd><%= @current_movie.join(:movie_duration) %></dd>
+  <dt>类型</dt>
+  <dd><%= @current_movie.join(:movie_type) %></dd>
+  <dt>版本</dt>
+  <dd><%= @current_movie.join(:movie_edition) %></dd>
+  <dt>导演</dt>
+  <dd><%= @current_movie.join(:director) %></dd>
+  <dt>主演</dt>
+  <dd><%= @current_movie.join(:cast) %></dd>
+</dl>
+
+<h3><%= @current_movie.title %>的剧情简介</h3>
+<blockquote>
+  <%= @current_movie.summary %> 
+</blockquote>
