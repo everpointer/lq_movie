@@ -41,9 +41,11 @@ group :test do
   # make selenium work travis-ci xvfb
   #gem "selenium-webdriver", "~> 2.72.2"
   gem 'spork'
-  gem 'guard-spork'
-  # guard-rspec dependencies
-  gem 'rb-fsevent', '~> 0.9.1'
+  unless ENV["CI"]
+    gem 'guard-spork'
+    # guard-rspec dependencies
+    gem 'rb-fsevent', '~> 0.9.1'
+  end
 end
 
 group :production do
