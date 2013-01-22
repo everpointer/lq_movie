@@ -16,7 +16,7 @@ describe "Indices" do
       visit root_path
 
       click_link "选座购票"
-      current_path should == movie_path(movie)
+      current_path.should == movie_path(movie)
     end
 
   end
