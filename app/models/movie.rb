@@ -11,6 +11,8 @@ class Movie < ActiveRecord::Base
   attr_accessible :image, :title, :image, :director, :cast, :movie_type, :pubdate,
     :country, :language, :movie_duration, :movie_edition, :rating, :summary, :douban_id, :is_screening
 
+  has_many :movie_sessions
+
   scope :screening, where("is_screening = ?", true)
 
   def join(column)

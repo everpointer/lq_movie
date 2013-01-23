@@ -13,5 +13,13 @@ describe "Movies" do
         end
       end
     end
+
+    context "Movie sessions" do
+      let!(:movie_session) { FactoryGirl.create(:movie_session, movie: movie) }
+      subject { page }
+
+      it { should have_content movie_session.movie.title }
+    end
+
   end
 end
