@@ -29,6 +29,7 @@
 <ul>
   <%= content_tag_for(:li, @movie_sessions) do |session| %>
     <%= content_tag :span, session.movie_theatre.name %> 
+    <%= content_tag :span, session.screening_room.name %> 
   <% end %>
 
 </ul>

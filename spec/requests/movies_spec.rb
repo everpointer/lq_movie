@@ -6,6 +6,7 @@ describe "Movies" do
     let!(:movie_session) { FactoryGirl.create(:movie_session) }
     let!(:movie) { movie_session.movie }
     let!(:movie_theatre) { movie_session.movie_theatre }
+    let!(:screening_room) { movie_session.screening_room }
 
     before { visit movie_path(movie) }
 
@@ -20,9 +21,8 @@ describe "Movies" do
     context "Movie sessions" do
       subject { page }
 
-      it { should have_content movie.title }
       it { should have_content movie_theatre.name }
-      it { should have_content movie_session.screening_room.name }
+      it { should have_content screening_room.name }
     end
 
   end

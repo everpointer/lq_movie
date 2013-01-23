@@ -4,6 +4,6 @@ class MoviesController < ApplicationController
 
   def show
     @current_movie = Movie.find(params[:id])
-    @movie_sessions = @current_movie.movie_sessions.includes(:movie_theatre)
+    @movie_sessions = @current_movie.movie_sessions # why .includes(:movie_theatre) not work?
   end
 end

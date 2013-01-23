@@ -9,5 +9,6 @@ FactoryGirl.define do
 
     association :movie
     association :movie_theatre
+    association :screening_room
   end
 end
