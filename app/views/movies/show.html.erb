@@ -24,3 +24,11 @@
 <blockquote>
   <%= @current_movie.summary %> 
 </blockquote>
+
+<h2>电影场次</h2>
+<ul>
+  <%= content_tag_for(:li, @movie_sessions) do |session| %>
+    <%= content_tag :span, session.movie_theatre.name %> 
+  <% end %>
+
+</ul>

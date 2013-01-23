@@ -3,7 +3,10 @@ require 'spec_helper'
 
 describe "Movies" do
   describe "GET /movies/:id" do
-    let!(:movie) { FactoryGirl.create(:movie) }
+    let!(:movie_session) { FactoryGirl.create(:movie_session) }
+    let!(:movie) { movie_session.movie }
+    let!(:movie_theatre) { movie_session.movie_theatre }
+
     before { visit movie_path(movie) }
 
     it "should view a movie" do
@@ -15,10 +18,11 @@ describe "Movies" do
     end
 
     context "Movie sessions" do
-      let!(:movie_session) { FactoryGirl.create(:movie_session, movie: movie) }
       subject { page }
 
-      it { should have_content movie_session.movie.title }
+      it { should have_content movie.title }
+      it { should have_content movie_theatre.name }
+      it { should have_content movie_session.screening_room.name }
     end
 
   end

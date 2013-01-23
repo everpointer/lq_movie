@@ -8,5 +8,6 @@ FactoryGirl.define do
     screening_date "2013-01-23 14:50:06"
 
     association :movie
+    association :movie_theatre
   end
 end
