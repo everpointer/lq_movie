@@ -35,6 +35,8 @@ group :test, :development do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller" # for better_errors local and instance variable inspectation
 end
 
 group :test do
