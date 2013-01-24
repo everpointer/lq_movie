@@ -28,7 +28,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'capistrano'
   gem 'rspec-rails'
-  gem 'capybara', '~> 1.1.4'
+  gem 'capybara', '~> 2.0.2'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
