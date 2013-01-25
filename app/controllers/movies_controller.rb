@@ -4,6 +4,6 @@ class MoviesController < ApplicationController
 
   def show
     @current_movie = Movie.find(params[:id])
-    @movie_sessions = @current_movie.movie_sessions # why .includes(:movie_theatre) not work?
+    @movie_sessions = @current_movie.movie_sessions.theday(params[:on_date]) # why .includes(:movie_theatre) not work?
   end
 end

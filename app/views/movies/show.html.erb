@@ -26,6 +26,12 @@
 </blockquote>
 
 <h2>电影场次</h2>
+<div>
+  反映日期：
+  <% 5.times do |i| %>
+    <%= screening_date_tag(@current_movie, i) %>
+  <% end %>
+</div>
 <ul>
   <%= content_tag_for(:li, @movie_sessions) do |session| %>
     <%= content_tag :span, session.movie_theatre.name %> 

@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :movie_session do
     movie_edition "数字 原声"
     price 48
-    screening_date "2013-01-23 14:50:06"
+    screening_date DateTime.new(Date.today.year, Date.today.month, Date.today.day, 8, 40)
 
     association :movie
     association :movie_theatre

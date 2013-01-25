@@ -37,6 +37,7 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller" # for better_errors local and instance variable inspectation
+  gem 'meta_request', '0.2.0'
 end
 
 group :test do

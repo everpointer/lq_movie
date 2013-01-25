@@ -18,11 +18,34 @@ describe "Movies" do
       end
     end
 
-    context "Movie sessions" do
+    describe "Movie sessions" do
       subject { page }
 
-      it { should have_content movie_theatre.name }
-      it { should have_content screening_room.name }
+      context "with right filters" do
+        before do
+          right_date = movie_session.on_date.to_s
+          find("[date='#{right_date}']").click
+        end
+
+        it "should view a session" do
+          page.should have_content movie_theatre.name
+          page.should have_content screening_room.name
+        end
+      end
+
+      context "with wrong filters" do
+        before do
+          wrong_date = movie_session.on_date.next_day.to_s
+          find("[date='#{wrong_date}']").click
+        end
+
+        it "should not view a session" do
+          page.should_not have_content movie_theatre.name
+          page.should_not have_content screening_room.name
+        end
+
+      end
+
     end
 
   end
