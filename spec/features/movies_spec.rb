@@ -25,6 +25,7 @@ describe "Movies" do
         before do
           right_date = movie_session.on_date.to_s
           find("[date='#{right_date}']").click
+          click_link movie_theatre.area
         end
 
         it "should view a session" do
@@ -37,6 +38,7 @@ describe "Movies" do
         before do
           wrong_date = movie_session.on_date.next_day.to_s
           find("[date='#{wrong_date}']").click
+          click_link FactoryGirl.build(:other_area_theater).area
         end
 
         it "should not view a session" do

@@ -7,5 +7,9 @@ FactoryGirl.define do
     city "宁波"
     area "海曙"
     address "宁波市海曙区战船街2号"
+
+    factory :other_area_theater do
+      area "余姚"
+    end
   end
 end
