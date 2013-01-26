@@ -5,6 +5,8 @@ class MovieSession < ActiveRecord::Base
 
   attr_accessible :movie_edition, :price, :screening_date, :movie_id, :movie_theatre_id, :screening_room_id
 
+  scope :at_theatre, ->(movie_theatre_id) { where(movie_theatre_id: movie_theatre_id) }
+
   def on_date
     screening_date.to_date
   end
@@ -32,4 +34,5 @@ class MovieSession < ActiveRecord::Base
     end.join(",")
     where("movie_theatre_id IN (?)", theatre_ids)
   end
+
 end

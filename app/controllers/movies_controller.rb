@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     end
 
     unless theatre.nil? || theatre.empty?
-      @movie_sessions = @current_movie.movie_sessions.theday(on_date).at_theatres(@movie_theatres)
+      @movie_sessions = @current_movie.movie_sessions.theday(on_date).at_theatre(theatre)
     end 
 
   end
