@@ -21,4 +21,15 @@ module MoviesHelper
 
   end
 
+  def theatre_tag(movie, movie_theatres, params)
+    unless movie_theatres.nil?
+      content_tag :ul do
+        content_tag_for :li, movie_theatres do |theatre|
+          params[:theatre] = theatre.id
+          link_to theatre.name, movie_path(movie, params)
+        end     
+      end
+    end
+  end
+
 end

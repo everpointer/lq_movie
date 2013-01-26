@@ -6,7 +6,5 @@ FactoryGirl.define do
     name "2号厅"
     seats "MyText"
     order "RL"
-
-    association :movie_theatre
   end
 end

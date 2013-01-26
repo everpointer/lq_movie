@@ -33,10 +33,13 @@
   <% end %>
 </div>
 <%= city_area_tag(@current_movie, params[:on_date] || Date.today) %>
-<ul>
-  <%= content_tag_for(:li, @movie_sessions) do |session| %>
-    <%= content_tag :span, session.movie_theatre.name %> 
-    <%= content_tag :span, session.screening_room.name %> 
-  <% end %>
 
-</ul>
+<%= theatre_tag(@current_movie, @movie_theatres, params) %>
+
+<% unless @movie_sessions.nil? %>
+  <ul>
+    <%= content_tag_for(:li, @movie_sessions) do |session| %>
+      <%= content_tag :span, session.screening_room.name %> 
+    <% end %>
+  </ul>
+<% end %>

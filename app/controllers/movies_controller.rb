@@ -4,14 +4,18 @@ class MoviesController < ApplicationController
 
   def show
     @current_movie = Movie.find(params[:id])
+    on_date = Date.parse(params[:on_date] || Date.today.to_s)
     city = params[:city]
     area = params[:area]
+    theatre = params[:theatre]
 
-    if city.nil?
-      @movie_sessions = []
-    else
-      @movie_sessions = @current_movie.movie_sessions.theday(params[:on_date]).at_place(city, area)
+    unless city.nil?
+      @movie_theatres = MovieTheatre.at_place(city, area)
     end
+
+    unless theatre.nil? || theatre.empty?
+      @movie_sessions = @current_movie.movie_sessions.theday(on_date).at_theatres(@movie_theatres)
+    end 
 
   end
 end

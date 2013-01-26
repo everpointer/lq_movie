@@ -14,23 +14,22 @@ class MovieSession < ActiveRecord::Base
   end
 
   def self.theday(date)
-    if date.nil?
+    if date.nil? || !date.instance_of?(Date)
       []
     else
-      date = Date.parse(date)
       datetime = date.to_datetime
       datetime_after = date.tomorrow.to_datetime
       where(screening_date: datetime..datetime_after)
     end
   rescue => ex
-    puts ex.inspect
+    puts "Exception:" + ex.inspect
     []
   end
 
-  def self.at_place(city, area = nil)
-    matched_theatre_ids = MovieTheatre.at_place(city, area).collect do |theatre|
+  def self.at_theatres(movie_theatres)
+    theatre_ids = movie_theatres.collect do |theatre|
       theatre.id
     end.join(",")
-    where("movie_theatre_id IN (?)", matched_theatre_ids)
+    where("movie_theatre_id IN (?)", theatre_ids)
   end
 end
