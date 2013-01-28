@@ -26,7 +26,7 @@ module MovieSessionsHelper
   def seat_tds_tag(row_name, seat_values, seat_types, screening_room)
     tds_tag = []
     seat_values.each_with_index do |seat_value, index|
-      seat_index = screening_room.seat_index(index)  # todo: 实现 LR, 返回新的index
+      seat_index = screening_room.seat_index(row_name, index)  # todo: 实现 LR, 返回新的index
       seat_key = ScreeningRoom.seat_key(row_name, seat_index)
       seat_title = ScreeningRoom.seat_title(row_name, seat_index)
       seat_type = seat_types[seat_key] || seat_type(seat_value)

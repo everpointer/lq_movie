@@ -16,6 +16,8 @@ config/deploy.rb
 log/*.log
 tmp
 
+test
+
 public/uploads/
 public/source_maps/
 public/assets/
