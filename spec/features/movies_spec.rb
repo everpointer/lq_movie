@@ -32,6 +32,10 @@ describe "Movies" do
 
         it "should view a session" do
           page.should have_content screening_room.name
+          page.should have_content movie_session.on_time
+
+          click_link movie_session.on_time
+          current_path.should == movie_session_path(movie_session)
         end
       end
 

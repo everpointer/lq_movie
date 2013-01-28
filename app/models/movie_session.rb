@@ -1,9 +1,11 @@
 class MovieSession < ActiveRecord::Base
+  serialize :seat_status, Hash
+
   belongs_to :movie
   belongs_to :movie_theatre
   belongs_to :screening_room
 
-  attr_accessible :movie_edition, :price, :screening_date, :movie_id, :movie_theatre_id, :screening_room_id
+  attr_accessible :movie_edition, :price, :screening_date, :movie_id, :movie_theatre_id, :screening_room_id, :seat_status
 
   scope :at_theatre, ->(movie_theatre_id) { where(movie_theatre_id: movie_theatre_id) }
 
@@ -12,7 +14,7 @@ class MovieSession < ActiveRecord::Base
   end
 
   def on_time
-    screening_date.to_time
+    screening_date.strftime("%H:%M")
   end
 
   def self.theday(date)

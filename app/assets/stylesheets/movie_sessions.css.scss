@@ -1,0 +1,80 @@
+// Place all the styles related to the MovieSessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#seats_wrapper {
+  background: #fbfbfb;
+  padding: 20px 15px;
+  overflow-y: hidden;
+  position: relative;
+
+  table {
+    border-spacing: 1;
+    margin: 0 auto;
+
+    th {
+      height: 20px;
+      width: 30px;
+      color: #666;
+      text-align: center;
+      word-break: keep-all;
+      white-space: nowrap;
+      padding: 6px 5px 6px 1px;
+    }
+
+    td {
+      height: 20px;
+      width: 20px;
+      text-align: center;
+      color: #eee;
+      padding: 6px 1px;
+      zoom: 1;
+      overflow: hidden;
+
+      span {
+        display: block;
+        height: 19px;
+        width: 19px;
+        border: 1px solid #ddd;
+        background: #fff;
+        zoom: 1;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+
+    td.seat_none {
+      background: #fbfafa;
+      color: #eee;
+
+      span {
+        display: none;
+      }
+    }
+
+    td.seat_single_available, td.seat_double_available {
+      span {
+        background: #fff;
+        cursor: pointer;
+      }
+    }
+
+    td.seat_not_available {
+      span {
+        background: #ddd;
+      }
+    }
+
+    td.seat_taken {
+      span {
+        background: #5191c7 url(movie_seat_checked.png) no-repeat 2px 4px;
+        border: 1px solid #5191c7;
+        cursor: pointer;
+      }
+    }
+  }
+
+} // end of #seat_show
+

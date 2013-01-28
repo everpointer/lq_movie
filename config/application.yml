@@ -1,0 +1,5 @@
+# TODO：extract some config from app into YML file
+# low-case and environment related are supported
+# 使用yml的好处可以将一些不方便与人共享的配置抽取出来
+# 然后加入.gitignore,再做一个example配置文件，别人部署时，可以根据readme,来操作配置文件
+todo: fuck

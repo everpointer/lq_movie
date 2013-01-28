@@ -15,6 +15,14 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+# ref: railscast #85 YAML Configuration (revised)
+# instead write config in app, load them use YML.
+# And instead of using ENV, use CONFIG to read, support low-case and environment
+# a bug: config will not be array if YML is empty, then Array.fetch method will fail
+CONFIG = YAML.load(File.read(File.expand_path("../application.yml", __FILE__)))
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+CONFIG.symbolize_keys!
+
 module LqMovie
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

@@ -1,0 +1,7 @@
+<h2><%= @movie_theatre.name + "-" + @screening_room.name %></h2>
+
+<h3>座位</h3>
+
+<div id="seats_wrapper">
+  <%= seat_table_tag(@movie_session, @screening_room) %>
+</div>

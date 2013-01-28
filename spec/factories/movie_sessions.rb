@@ -3,6 +3,7 @@
 
 FactoryGirl.define do
   factory :movie_session do
+    seat_status Hash.new
     movie_edition "数字 原声"
     price 48
     screening_date DateTime.new(Date.today.year, Date.today.month, Date.today.day, 8, 40)

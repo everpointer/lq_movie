@@ -35,6 +35,9 @@ group :test, :development do
 end
 
 group :development do
+  gem "pry"
+  gem "pry-nav"
+  gem "jist"
   gem "better_errors"
   gem "binding_of_caller" # for better_errors local and instance variable inspectation
   gem 'meta_request', '0.2.0'

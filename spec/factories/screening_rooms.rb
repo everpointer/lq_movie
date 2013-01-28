@@ -4,7 +4,9 @@
 FactoryGirl.define do
   factory :screening_room do
     name "2号厅"
-    seats "MyText"
+    seats "A" => [nil,0,0,0,nil],
+          "B" => [0,0,0,0,0],
+          "C" => [0,0,0,0,0]
     order "RL"
   end
 end
