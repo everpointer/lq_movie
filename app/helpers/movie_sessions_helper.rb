@@ -1,11 +1,11 @@
 # encoding: utf-8
 module MovieSessionsHelper
   # seat状态常量设置
-  SEAT_NONE = nil # 无座位
-  SEAT_SINGLE_AVAILABLE = 0 # 可选单人作为
-  SEAT_DOUBLE_AVAILABLE = 1 # 可选双人座位
-  SEAT_NOT_AVAILABLE = 2 # 不可选座位
-  SEAT_TAKEN = 3 # 已选座位
+  # SEAT_NONE = nil # 无座位
+  # SEAT_SINGLE_AVAILABLE = 0 # 可选单人作为
+  # SEAT_DOUBLE_AVAILABLE = 1 # 可选双人座位
+  # SEAT_NOT_AVAILABLE = 2 # 不可选座位
+  # SEAT_TAKEN = 3 # 已选座位
 
   def seat_table_tag(movie_session, screening_room)
     seats = screening_room.seats
@@ -31,7 +31,7 @@ module MovieSessionsHelper
       seat_title = ScreeningRoom.seat_title(row_name, seat_index)
       seat_type = seat_types[seat_key] || seat_type(seat_value)
 
-      tds_tag << content_tag(:td, content_tag(:span), { title: seat_title, id: seat_key, class: seat_type })
+      tds_tag << content_tag(:td, content_tag(:span), { title: seat_title, id: seat_key, class: seat_type, ori_class: seat_type })
     end
     tds_tag.join("").html_safe
   end
@@ -45,14 +45,15 @@ module MovieSessionsHelper
   end
 
   def seat_type(seat_value)
+    seat_statuses = ScreeningRoom.status_types
     case seat_value
-    when SEAT_SINGLE_AVAILABLE
+    when seat_statuses[:single_available]
       "seat_single_available"
-    when SEAT_DOUBLE_AVAILABLE
+    when seat_statuses[:double_available]
       "seat_double_available"
-    when SEAT_NOT_AVAILABLE
+    when seat_statuses[:not_available]
       "seat_not_available"
-    when SEAT_TAKEN
+    when seat_statuses[:taken]
       "seat_taken" 
     else
       "seat_none"

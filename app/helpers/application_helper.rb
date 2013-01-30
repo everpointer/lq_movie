@@ -6,6 +6,13 @@ module ApplicationHelper
     end
   end
 
+  def controller_javascript_include_tag
+        case controller_name
+        when "movie_sessions"
+          javascript_include_tag controller_name
+        end
+  end
+
   def link_for(links, html_options = {})
     return nil unless links.length > 1
 

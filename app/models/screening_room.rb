@@ -7,6 +7,31 @@ class ScreeningRoom < ActiveRecord::Base
   has_one :movie_theatre
   has_many :movie_sessions
 
+  STATUS_TYPES = { 
+      none: nil,  # 无座位
+      single_available: 0, # 可选单人座位
+      double_available: 1, # 可选双人座位
+      not_available: 2, # 不可选座位
+      taken: 3 # 已选座位
+  }
+
+  def self.status_types
+    STATUS_TYPES
+  end
+
+  def seat_statuses
+    seat_statuses = {}
+    seats.each do |row_name, statuses|
+      statuses.each_with_index do |status, index|
+        seat_index = seat_index(row_name, index)
+        unless seat_index.nil?
+          seat_statuses[ScreeningRoom.seat_key(row_name, seat_index)] = status
+        end
+      end
+    end
+    seat_statuses 
+  end
+
   def self.seat_key(row_name, seat_value)
     if seat_value.nil?
       "none"
@@ -21,7 +46,7 @@ class ScreeningRoom < ActiveRecord::Base
 
   # todo: 表结构涉及有问题，导致seat_index计算复杂，难以理解，修改重新考虑一下
   def seat_index(row_name, index)
-    if seats[row_name][index].nil?
+    if seats[row_name][index] == ScreeningRoom.status_types['none']
       nil
     else
       if order == "LR"
