@@ -10,7 +10,7 @@ describe "Movie Sessions" do
       visit movie_session_path(movie_session)
     end
 
-    it "should view a movie session" do
+    it "should view a movie session", :js => true do
       page.should have_content movie_session.screening_room.name
 
       within "table>tbody" do

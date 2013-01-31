@@ -8,7 +8,7 @@ describe ScreeningRoom do
   subject { screening_room }
 
   # todo: 测试数据的构造竟然大片的写在spec里，能利用FactoryGirl吗，而且设计到这么多，
-  # 随时可能要改
+  # 随时可能要改, 比如我先在把3行3列的数据，改成5列数据，然后测试代码就不能work了
   before do
     keys = screening_room.seats.keys
     status_types = ScreeningRoom.status_types
@@ -17,9 +17,9 @@ describe ScreeningRoom do
     @nil_seat_index = nil
     @nil_seat_key = "none" 
     @single_seat_ori_index = 1
-    @single_seat_index = 3
-    @single_seat_key = "A:3"
-    @single_seat_title = "A排3座"
+    @single_seat_index = 5
+    @single_seat_key = "A:5"
+    @single_seat_title = "A排5座"
   end
 
   context ".seat_index" do
