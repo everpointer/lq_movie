@@ -31,7 +31,7 @@ module MovieSessionsHelper
       seat_title = ScreeningRoom.seat_title(row_name, seat_index)
       seat_type = seat_types[seat_key] || seat_type(seat_value)
 
-      tds_tag << content_tag(:td, content_tag(:span), { title: seat_title, id: seat_key, class: seat_type, ori_class: seat_type })
+      tds_tag << content_tag(:td, content_tag(:span), { title: seat_title, id: seat_key, class: seat_type, ori_class: seat_type(seat_value) })
     end
     tds_tag.join("").html_safe
   end
