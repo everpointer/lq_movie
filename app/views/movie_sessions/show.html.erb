@@ -5,3 +5,35 @@
 <div id="seats_wrapper">
   <%= seat_table_tag(@movie_session, @screening_room) %>
 </div>
+
+<div id="session_order">
+  <h3>我的订单</h3>
+  <div id="order_info">
+    <div>
+      <span>影片</span>
+      <%= content_tag :span, @movie_session.movie.title + " " + @movie_session.movie_edition %>
+    </div>
+    <div>
+      <span>时间</span>
+      <%= content_tag :span, @movie_session.screening_date.strftime("%Y-%m-%d %H:%M:%S") %>
+    </div>
+    <div>
+      <span>票价</span>
+      <%= content_tag :span, @movie_session.price.to_s + "元 / 张" %>
+    </div>
+    <div>
+      <span>座位</span>
+      <span id="choosed_seats"></span>
+    </div>
+
+    <hr>
+
+    <div>
+      票数<span id="tickets_num"></span> 总计<span id="total_expense"></span>
+    </div>
+  </div>
+  <%= button_tag "提交订单", id: "submit_order" %>
+
+</div>
+
+<input type="hidden" id="session_unit_price" value=<%= @movie_session.price %>>

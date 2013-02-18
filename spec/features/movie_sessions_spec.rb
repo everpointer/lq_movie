@@ -44,5 +44,26 @@ describe "Movie Sessions" do
       end
     end
 
+    context "Session order", :js => true do
+      let!(:movie) { movie_session.movie }
+      before do
+        # binding.pry
+        td_row_unnil_seats = first("tr").all("td").to_a.keep_if { |td| td[:class] == "seat_single_available" || td[:class] == "seat_double_available" }
+        @td_first_seat = td_row_unnil_seats.first
+        @td_second_seat = td_row_unnil_seats.at(1)
+      end
+
+      it "should add ticket to session order" do
+        @td_first_seat.click
+
+        find("#choosed_seats").text.should be_include(@td_first_seat[:title])
+        find("#tickets_num").text.should be_include("1") 
+        find("#total_expense").text.should be_include(movie_session.price.to_s)
+
+        click_button "提交订单"
+      end
+
+    end
+
   end
 end

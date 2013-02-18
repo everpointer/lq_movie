@@ -74,6 +74,12 @@
         cursor: pointer;
       }
     }
+
+    td.type_locked span {
+      background: #5191c7 url(movie_seat_locked.png) no-repeat 4px 4px;
+      border: 1px solid #5191c7;
+      cursor: pointer;
+    }
   }
 
 } // end of #seat_show
