@@ -23,17 +23,21 @@
     </div>
     <div>
       <span>座位</span>
-      <span id="choosed_seats"></span>
+      <span id="info_choosed_seats"></span>
     </div>
 
     <hr>
 
     <div>
-      票数<span id="tickets_num"></span> 总计<span id="total_expense"></span>
+      票数<span id="info_tickets_num"></span> 总计<span id="info_expense"></span>
     </div>
   </div>
-  <%= button_tag "提交订单", id: "submit_order" %>
-
+  <%= simple_form_for SessionOrder.new, url: session_orders_path, method: :post do |f| %>
+    <%= f.hidden_field :choosed_seats, id: :choosed_seats %>
+    <%= f.hidden_field :expense, id: :expense %>
+    <%= f.hidden_field :movie_session_id, id: :movie_sesson_id, value: @movie_session.id  %>
+    <%= f.submit "提交订单" %>
+  <% end %>
+  <%= hidden_field_tag :session_unit_price, @movie_session.price  %>
 </div>
 
-<input type="hidden" id="session_unit_price" value=<%= @movie_session.price %>>

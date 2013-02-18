@@ -46,6 +46,7 @@ describe "Movie Sessions" do
 
     context "Session order", :js => true do
       let!(:movie) { movie_session.movie }
+      let!(:session_order) { FactoryGirl.create(:session_order) }
       before do
         # binding.pry
         td_row_unnil_seats = first("tr").all("td").to_a.keep_if { |td| td[:class] == "seat_single_available" || td[:class] == "seat_double_available" }
@@ -56,11 +57,13 @@ describe "Movie Sessions" do
       it "should add ticket to session order" do
         @td_first_seat.click
 
-        find("#choosed_seats").text.should be_include(@td_first_seat[:title])
-        find("#tickets_num").text.should be_include("1") 
-        find("#total_expense").text.should be_include(movie_session.price.to_s)
+        find("#info_choosed_seats").text.should be_include(@td_first_seat[:title])
+        find("#info_tickets_num").text.should be_include("1") 
+        find("#info_expense").text.should be_include(movie_session.price.to_s)
 
-        click_button "提交订单"
+        click_on "提交订单"
+
+        current_path.should == session_order_path(SessionOrder.last.id)
       end
 
     end

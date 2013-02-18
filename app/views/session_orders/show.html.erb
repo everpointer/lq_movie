@@ -1,0 +1,22 @@
+<h2>电影订单<h2>
+<div>
+  <dl>
+    <dt>订单编号</dt> 
+    <dd><%= @session_order.order_id %></dd>
+  </dl>
+
+  <dl>
+    <dt>所选座位</dt> 
+    <dd><%= @session_order.choosed_seats.join(",") %></dd>
+  </dl>
+
+  <dl>
+    <dt>消费</dt> 
+    <dd><%= @session_order.expense %></dd>
+  </dl>
+  
+  <dl>
+    <dt>创建时间</dt> 
+    <dd><%= @session_order.created_at %></dd>
+  </dl>
+</div>

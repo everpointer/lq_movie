@@ -16,11 +16,21 @@ $ ->
     add_ticket = (seat) ->
         session_unit_price = $("#session_unit_price").val()
 
-        $("#choosed_seats").append(seat.attr("title"))
-        tickets_num = parseInt($("#tickets_num").text())
+        set_order_info(seat, session_unit_price)
+        fill_in_order_form(seat)
+
+    set_order_info = (seat, session_unit_price) ->
+        $("#info_choosed_seats").append(seat.attr("title"))
+        tickets_num = parseInt($("#info_tickets_num").text())
         tickets_num = if isNaN(tickets_num) then 1 else tickets_num + 1
-        $("#tickets_num").text( tickets_num )
+        $("#info_tickets_num").text( tickets_num )
         total_expense = tickets_num * parseFloat(session_unit_price)
-        $("#total_expense").text( total_expense.toFixed(1) )
+        $("#info_expense").text( total_expense.toFixed(1) )
+
+    fill_in_order_form = (seat)->
+        seats = JSON.parse $("#choosed_seats").val()
+        seats.push(seat.attr("id"))
+        $("#choosed_seats").val JSON.stringify(seats)
+        $("#expense").val $("#info_expense").text()
 
 
