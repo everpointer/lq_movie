@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
   serialize :movie_edition, Array
   serialize :rating, Hash
 
-  attr_accessible :image, :title, :image, :director, :cast, :movie_type, :pubdate,
+  attr_accessible :title, :image, :director, :cast, :movie_type, :pubdate,
     :country, :language, :movie_duration, :movie_edition, :rating, :summary, :douban_id, :is_screening
 
   has_many :movie_sessions
@@ -25,5 +25,20 @@ class Movie < ActiveRecord::Base
 
   def self.reset_screening
     Movie.screening.update_all("is_screening = false")
+  end
+
+  # 默认api获得的image尺寸是small的
+  def large_image
+   "http://img3.douban.com/lpic/s" + douban_image_id + ".jpg"
+  end
+
+  def middle_image
+   "http://img3.douban.com/mpic/s" + douban_image_id + ".jpg"
+  end
+
+  private
+
+  def douban_image_id
+    /pic\/s(\d*).jpg/.match(self.image)[1]
   end
 end
