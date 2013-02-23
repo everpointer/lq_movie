@@ -8,6 +8,55 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= reuqire bootstrap_and_overrides
+ *= require bootstrap_and_overrides
  *= require_self
  */
+ 
+ul, ol {
+  list-style: none;
+  margin: 0;
+}
+
+span.rating-stars50 {
+    background-position: 0 0;
+}
+span..rating-stars45 {
+    background-position: 0 -11px;
+}
+span..rating-stars40 {
+    background-position: 0 -22px;
+}
+span.rating-stars35 {
+    background-position: 0 -33px;
+}
+span.rating-stars30 {
+    background-position: 0 -44px;
+}
+span.rating-stars25 {
+    background-position: 0 -55px;
+}
+span.rating-stars20 {
+    background-position: 0 -66px;
+}
+span.rating-stars15 {
+    background-position: 0 -77px;
+}
+span.rating-stars10 {
+    background-position: 0 -88px;
+}
+span.rating-stars05 {
+    background-position: 0 -99px;
+}
+span.rating-stars00 {
+    background-position: 0 -110px;
+}
+
+.rating-stars50, .rating-stars45, .rating-stars40, .rating-stars35, .rating-stars30, .rating-stars25, .rating-stars20, .rating-stars15, .rating-stars10, .rating-stars05, .rating-stars00 {
+    display: inline-block;
+    zoom: 1;
+    width: 55px;
+    height: 11px;
+    background: url("http://img3.douban.com/pics/movie/midstars.gif") no-repeat;
+    margin: 0 3px 0 0;
+    overflow: hidden;
+}

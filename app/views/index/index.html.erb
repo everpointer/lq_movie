@@ -1,7 +1,42 @@
-<ul>
-    <%= content_tag_for(:li, @screening_movies) do |movie| %>
-         <%= image_tag movie.large_image, alt: movie.title %>
-         <%= movie.title %>
-         <%= link_to "选座购票", movie_path(movie) %>
-    <% end %>
-</ul>
+<div class="screening">
+  <div class="screening-panel">
+    <div class="ui-slide-control">
+      <span class="span-prev">
+        <a href="javascript:void(0)" class="btn-prev"></a>
+      </span>
+      <span class="span-next">
+        <a href="javascript:void(0)" class="btn-next"></a>
+      </span>
+    </div>
+    <div class="ui-slide-tip">
+      <span class="ui-slide-index">0</span> / <span class="ui-slide-max"><%= @screening_movies.length %></span>
+    </div>
+    <h2>正在热映</h2>
+  </div>
+  <div class= "screening-movies">
+    <ul class="ui-slide-content">
+        <%= content_tag_for :li, @screening_movies, class: "ui-slide-item" do |movie| %>
+            <ul>
+              <li class="poster">
+
+              <%= link_to movie_path(movie) do %>
+                <%= image_tag movie.large_image, alt: movie.title %>
+              <% end %>
+              </li>
+              <li class="title">
+                <%= link_to movie.title, movie_path(movie) %>
+              </li>
+              <li class="rating">
+                <%= rating_stars_tag(movie.rating_average) %>
+                <span class="movie-rate"><%= movie.rating_average %></span>
+              </li>
+              <li class="anchor">
+                <span>
+                  <%= link_to "选座购票", movie_path(movie) %>
+                </span>
+              </li>
+            </ul>
+        <% end %>
+    </ul>
+  </div>
+</div>

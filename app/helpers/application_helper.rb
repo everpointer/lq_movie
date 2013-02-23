@@ -1,14 +1,14 @@
 module ApplicationHelper
   def controller_stylesheet_link_tag
     case controller_name
-    when "movie_sessions"
+    when "index", "movie_sessions"
       stylesheet_link_tag controller_name
     end
   end
 
   def controller_javascript_include_tag
         case controller_name
-        when "movie_sessions"
+        when "index", "movie_sessions"
           javascript_include_tag controller_name
         end
   end
@@ -19,6 +19,20 @@ module ApplicationHelper
     links.collect  do |link|
       link_to link[:body], link[:url], html_options
     end.join("").html_safe
+  end
+
+  def rating_stars_tag(rating)
+    half_rating = rating / 2
+    rating_floor = half_rating.floor
+    rating_rest = if half_rating - rating_floor >= 0.5
+      "5"
+    else
+      "0"
+    end
+
+    rating_stars_class = "rating-stars" + rating_floor.to_s + rating_rest
+
+    content_tag :span, "", :class => "rating-star " + rating_stars_class
   end
 
 end

@@ -36,6 +36,10 @@ class Movie < ActiveRecord::Base
    "http://img3.douban.com/mpic/s" + douban_image_id + ".jpg"
   end
 
+  def rating_average
+    self.rating["average"].to_f
+  end
+
   private
 
   def douban_image_id

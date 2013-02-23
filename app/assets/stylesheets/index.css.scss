@@ -1,3 +1,98 @@
 // Place all the styles related to the Index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.screening {
+  width: 608px;
+
+  div.screening-panel {
+    .ui-slide-control {
+      float: right;
+      margin: 5px 0 0 15px;
+
+      span {
+        margin: 0;
+      }
+
+      a {
+        float: left;
+        background: url(http://img3.douban.com/pics/movie/slide_swithc_2.png) no-repeat;
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+      }
+
+      .btn-prev {
+        background-position: 0 0;
+
+        .btn-disabled {
+          background-position: 0 -18px;
+        }
+      }
+
+      .btn-next {
+        background-position: -18px 0;
+
+        .btn-disabled {
+          background-position: -18px -18px;
+        }
+      }
+    }
+    .ui-slide-tip {
+      float: right;
+      line-height: 30px;    
+    }
+
+    h2 {
+      font: 15px Arial,Helvetica,sans-serif;
+      color: #072;
+      margin: 0 0 12px 0;
+      line-height: 150%;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaeaea;
+    }
+  }
+
+  div.screening-movies {
+    overflow: hidden;
+    position: relative;
+    width: 608px;
+    height: 270px;
+
+    .ui-slide-content {
+      position: absolute;
+      text-align: center;
+      vertical-align: top;
+      white-space: nowrap;
+
+      .ui-slide-item {
+        display: inline-block;
+        width: 129px;
+        height: 274px;
+        margin: 0 24px 0 0;
+
+        .poster {
+          margin-bottom: 12px;
+
+          img {
+            width: 128px;
+            height: 182px;
+          }
+        }
+
+        .rating {
+          height: 19px;
+          display: inline-block;
+          margin: 2px auto 2px; 
+
+          span {
+            float: left;
+          }
+
+          .rating-star {
+            margin: 3px 3px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
