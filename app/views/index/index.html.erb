@@ -2,14 +2,14 @@
   <div class="screening-panel">
     <div class="ui-slide-control">
       <span class="span-prev">
-        <a href="javascript:void(0)" class="btn-prev"></a>
+        <a href="javascript:void(0)" class="btn-prev btn-disabled"></a>
       </span>
       <span class="span-next">
         <a href="javascript:void(0)" class="btn-next"></a>
       </span>
     </div>
     <div class="ui-slide-tip">
-      <span class="ui-slide-index">0</span> / <span class="ui-slide-max"><%= @screening_movies.length %></span>
+      <span class="ui-slide-index">1</span> / <span class="ui-slide-max"><%= (@screening_movies.length/4.0).ceil %></span>
     </div>
     <h2>正在热映</h2>
   </div>

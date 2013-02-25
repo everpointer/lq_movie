@@ -23,18 +23,16 @@ div.screening {
 
       .btn-prev {
         background-position: 0 0;
-
-        .btn-disabled {
-          background-position: 0 -18px;
-        }
+      }
+      .btn-prev.btn-disabled {
+        background-position: 0 -18px;
       }
 
       .btn-next {
         background-position: -18px 0;
-
-        .btn-disabled {
-          background-position: -18px -18px;
-        }
+      }
+      .btn-next.btn-disabled {
+        background-position: -18px -18px;
       }
     }
     .ui-slide-tip {
@@ -68,7 +66,7 @@ div.screening {
         display: inline-block;
         width: 129px;
         height: 274px;
-        margin: 0 24px 0 0;
+        margin: 0 22px 0 0;
 
         .poster {
           margin-bottom: 12px;
