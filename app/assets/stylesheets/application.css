@@ -17,6 +17,12 @@ ul, ol {
   margin: 0;
 }
 
+.nav-logo a {
+    color: #248DCD;
+    font: 30px sans-serif;
+    text-decoration: none;
+}
+
 span.rating-stars50 {
     background-position: 0 0;
 }
