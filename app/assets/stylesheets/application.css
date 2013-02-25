@@ -11,6 +11,11 @@
  *= require bootstrap_and_overrides
  *= require_self
  */
+
+/* clearfix */
+.clear {
+  clear: both;
+}
  
 ul, ol {
   list-style: none;
@@ -26,10 +31,10 @@ ul, ol {
 span.rating-stars50 {
     background-position: 0 0;
 }
-span..rating-stars45 {
+span.rating-stars45 {
     background-position: 0 -11px;
 }
-span..rating-stars40 {
+span.rating-stars40 {
     background-position: 0 -22px;
 }
 span.rating-stars35 {
@@ -64,5 +69,50 @@ span.rating-stars00 {
     height: 11px;
     background: url("http://img3.douban.com/pics/movie/midstars.gif") no-repeat;
     margin: 0 3px 0 0;
+    overflow: hidden;
+}
+
+/* larger rating */
+.rating-larger span.rating-stars50 {
+    background-position: 0 0;
+}
+.rating-larger span.rating-stars45 {
+    background-position: 0 -14px;
+}
+.rating-larger span.rating-stars40 {
+    background-position: 0 -28px;
+}
+.rating-larger span.rating-stars35 {
+    background-position: 0 -42px;
+}
+.rating-larger span.rating-stars30 {
+    background-position: 0 -56px;
+}
+.rating-larger span.rating-stars25 {
+    background-position: 0 -70px;
+}
+.rating-larger span.rating-stars20 {
+    background-position: 0 -84px;
+}
+.rating-larger span.rating-stars15 {
+    background-position: 0 -98px;
+}
+.rating-larger span.rating-stars10 {
+    background-position: 0 -112px;
+}
+.rating-larger span.rating-stars05 {
+    background-position: 0 -126px;
+}
+.rating-larger span.rating-stars00 {
+    background-position: 0 -140px;
+}
+
+.rating-larger .rating-stars50, .rating-larger .rating-stars45, .rating-larger .rating-stars40, .rating-larger .rating-stars35, .rating-larger .rating-stars30, .rating-larger .rating-stars25, .rating-larger .rating-stars20, .rating-larger .rating-stars15, .rating-larger .rating-stars10, .rating-larger .rating-stars05, .rating-larger .rating-stars00 {
+    display: inline-block;
+    zoom: 1;
+    width: 75px;
+    height: 14px;
+    background: url("http://img3.douban.com/pics/movie/bigstars.gif") no-repeat;
+    margin: 1px 0 0 0;
     overflow: hidden;
 }

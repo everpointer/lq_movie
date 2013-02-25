@@ -1,14 +1,14 @@
 module ApplicationHelper
   def controller_stylesheet_link_tag
     case controller_name
-    when "index", "movie_sessions"
+    when "index", "movie_sessions", "movies"
       stylesheet_link_tag controller_name
     end
   end
 
   def controller_javascript_include_tag
         case controller_name
-        when "index", "movie_sessions"
+        when "index", "movie_sessions", "movies"
           javascript_include_tag controller_name
         end
   end

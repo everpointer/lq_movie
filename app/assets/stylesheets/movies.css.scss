@@ -1,3 +1,37 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.movie_detail {
+  width: 900px;
+
+  li {
+    line-height: 25px;
+  }
+
+  .detail_poster {
+    float: left;
+    width: 250px;
+
+    img {
+      width: 210px;
+      height: 280px;
+    }
+  }
+
+  .detail_info {
+    float: left;
+    width: 630px;
+
+    .info_left_half {
+      width: 50%;
+      float: left;
+    }
+
+    .info_right_half {
+      width: 50%;
+      float: left;
+    }
+  }
+
+}

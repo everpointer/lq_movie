@@ -1,46 +1,62 @@
-<h2><%= @current_movie.title %></h2>
-<%= image_tag  @current_movie.image %>
-<dl>
-  <dt>首映</dt>
-  <dd><%= @current_movie.join(:pubdate) %></dd>
+<div class="movie_detail">
+  <div class="detail_poster">
+    <%= image_tag  @current_movie.large_image %>
+  </div>
+  <div class="detail_info">
+    <div class="detail_movie_title">
+      <h2><%= @current_movie.title %></h2>
 
-  <dt>语言</dt>
-  <dd><%= @current_movie.join(:language) %></dd>
-  <dt>地区</dt>
-  <dd><%= @current_movie.join(:country) %></dd>
-  <dt>片长</dt>
-  <dd><%= @current_movie.join(:movie_duration) %></dd>
-  <dt>类型</dt>
-  <dd><%= @current_movie.join(:movie_type) %></dd>
-  <dt>版本</dt>
-  <dd><%= @current_movie.join(:movie_edition) %></dd>
-  <dt>导演</dt>
-  <dd><%= @current_movie.join(:director) %></dd>
-  <dt>主演</dt>
-  <dd><%= @current_movie.join(:cast) %></dd>
-</dl>
+      <div class="rating rating-larger">
+        <%= rating_stars_tag(@current_movie.rating_average) %>
+        <span class="movie-rate"><%= @current_movie.rating_average %></span>
+      </div>
+    </div>
+    <div class="info_left_half">
+      <ul>
+        <li><span>首映：</span><%= @current_movie.join(:pubdate) %></li>
+        <li><span>地区：</span><%= @current_movie.join(:country) %></li>
+        <li><span>类型：</span><%= @current_movie.join(:movie_type) %></li>
+        <li><span>导演：</span><%= @current_movie.join(:director) %></li>
+      </ul>
+    </div> 
+    <div class="info_right_half">
+      <ul>
+        <li><span>语言：</span><%= @current_movie.join(:language) %></li>
+        <li><span>片长：</span><% @current_movie.join(:movie_duration) %></li>
+        <li><span>版本：</span><% @current_movie.join(:movie_edition) %></li>
+      </ul>
+    </div> 
+    <p class="clear">
+      <span>主演：</span><%= @current_movie.join(:cast) %>
+    </p>
+  </div>   
+</div>
 
-<h3><%= @current_movie.title %>的剧情简介</h3>
-<blockquote>
-  <%= @current_movie.summary %> 
-</blockquote>
+<div class="detail_movie_desc clear">
+  <h3><%= @current_movie.title %>的剧情简介</h3>
+  <blockquote>
+    <%= @current_movie.summary %> 
+  </blockquote>
+</div>
 
-<h2>电影场次</h2>
-<div>
-  反映日期：
-  <% 5.times do |i| %>
-    <%= screening_date_tag(@current_movie, i) %>
+<div class="movie_sessions">
+  <h2>电影场次</h2>
+  <div>
+    反映日期：
+    <% 5.times do |i| %>
+      <%= screening_date_tag(@current_movie, i) %>
+    <% end %>
+  </div>
+  <%= city_area_tag(@current_movie, params[:on_date] || Date.today) %>
+
+  <%= theatre_tag(@current_movie, @movie_theatres, params) %>
+
+  <% unless @movie_sessions.nil? %>
+    <ul>
+      <%= content_tag_for(:li, @movie_sessions) do |session| %>
+        <%= content_tag :span, session.screening_room.name %> 
+        <%= link_to session.on_time, movie_session_path(session) %>
+      <% end %>
+    </ul>
   <% end %>
 </div>
-<%= city_area_tag(@current_movie, params[:on_date] || Date.today) %>
-
-<%= theatre_tag(@current_movie, @movie_theatres, params) %>
-
-<% unless @movie_sessions.nil? %>
-  <ul>
-    <%= content_tag_for(:li, @movie_sessions) do |session| %>
-      <%= content_tag :span, session.screening_room.name %> 
-      <%= link_to session.on_time, movie_session_path(session) %>
-    <% end %>
-  </ul>
-<% end %>
