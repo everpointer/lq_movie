@@ -33,5 +33,29 @@
       float: left;
     }
   }
+}
 
+.movie_sessions {
+  .screening_date_nav {
+    height: 28px;
+
+    .tabs {
+      height: 100%;
+
+      a {
+        display: inline-block;
+        background: url(screening_date_tabs_bg.png) no-repeat;
+        height: 100%;
+        width: 114px;
+        background-position: -124px, 0;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      a.select {
+
+      }
+    }
+  }
 }
