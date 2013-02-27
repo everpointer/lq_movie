@@ -34,7 +34,7 @@ describe "Movies" do
           page.should have_content screening_room.name
           page.should have_content movie_session.on_time
 
-          click_link movie_session.on_time
+          find(".operation a").click
           current_path.should == movie_session_path(movie_session)
         end
       end

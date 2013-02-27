@@ -59,12 +59,33 @@
     </div>
   </div>
 
-  <% unless @movie_sessions.nil? %>
-    <ul>
-      <%= content_tag_for(:li, @movie_sessions) do |session| %>
-        <%= content_tag :span, session.screening_room.name %> 
-        <%= link_to session.on_time, movie_session_path(session) %>
-      <% end %>
-    </ul>
+  <% unless @current_theatre.nil? %>
+    <div class="sessions">
+      <div class="caption">
+        <span><%= @current_theatre.name %></span>
+      </div>
+      <div class="header">
+         <span class="screening-date">反映时间</span>
+         <span class="edition">语言版本</span>
+         <span class="screening-room">反映厅</span>
+         <span class="price">现价（元）</span>
+         <span class="state">说明</span>
+         <span class="operation"></span>
+      </div>
+      <div class="content-list">
+        <% unless @movie_sessions.nil? %>
+          <ul>
+            <%= content_tag_for(:li, @movie_sessions) do |session| %>
+              <%= content_tag :span, session.on_time, class: "screening-date" %> 
+              <%= content_tag :span, session.movie_edition, class: "edition" %> 
+              <%= content_tag :span, session.screening_room.name, class: "screening-room" %> 
+              <%= content_tag :span, session.price, class: "price" %> 
+              <%= content_tag :span, "", class: "state" %> 
+              <%= content_tag :span, link_to("选座购票", movie_session_path(session)), class: "operation" %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+  </div>
   <% end %>
 </div>

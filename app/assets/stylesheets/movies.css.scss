@@ -96,5 +96,56 @@
         }
       }
     }    
-  }
+  } /* end of theatre choice */
+
+  .sessions {
+    .screening-date {
+      width: 88px;
+    }
+    .edition {
+      width: 90px;
+    }
+    .screening-room {
+      width: 99px;
+    }
+    .price {
+      width: 98px;
+    }
+    .state {
+      width: 100px;
+    }
+    .operation {
+      width: 142px;
+    }
+    .header {
+      background: #ECF6F9;
+      height: 45px;
+      border: 1px solid #bbb;
+
+      span {
+        border-right: 1px solid #bbb;
+        display: inline-block;
+        text-align: center;
+        line-height: 45px;
+      }
+    }
+    .content-list {
+      background: #FFFFFF;
+      border: 1px solid #bbb;
+      span {
+        display: inline-block;
+        text-align: center;
+        line-height: 45px;
+      }
+      ul {
+        li {
+
+        }
+        li:nth-child(even) {
+          background: #f6f6f6;
+        }
+      }
+    }
+
+  } /* end of sessions */
 }
