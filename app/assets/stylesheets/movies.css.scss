@@ -36,6 +36,8 @@
 }
 
 .movie_sessions {
+  width: 650px;
+
   .screening_date_nav {
     height: 28px;
 
@@ -54,8 +56,45 @@
       }
 
       a.select {
-
+        background-position: 0, 0;
       }
     }
+  }
+
+  .theatre_choice {
+    background: #F0F3F5;
+
+    a {
+      line-height: 27px;
+      padding: 0 5px;
+      text-decoration: none;
+    }
+    .area_label {
+      /* position: relative;
+      width: 70px;
+      top: -37px; */
+
+      float: left;
+      padding: 10px 0 0 10px;
+    }
+    .area {
+      display: inline-block;
+      width: 550px;
+      padding: 10px 10px 10px 10px;
+
+      .city_areas {
+        line-height: 27px;
+      }
+      .theatres {
+        background: #FFFFFF;
+        padding: 10px 10px 10px 10px;
+
+        ul {
+          li {
+            display: inline-block;
+          }
+        }
+      }
+    }    
   }
 }

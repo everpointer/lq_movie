@@ -7,8 +7,8 @@ module MoviesHelper
     link_to date.to_s, movie_path(movie, on_date: date), date: date.to_s
   end
 
-  def city_area_tag(movie, on_date)
-    content_tag(:div) do
+  def city_area_ul_tag(movie, on_date)
+    content_tag :ul do
       CITY_AREAS.keys.collect do |city|
         areas = CITY_AREAS[city]
         links = areas.collect do |area|
@@ -21,7 +21,7 @@ module MoviesHelper
 
   end
 
-  def theatre_tag(movie, movie_theatres, params)
+  def theatre_ul_tag(movie, movie_theatres, params)
     unless movie_theatres.nil?
       content_tag :ul do
         content_tag_for :li, movie_theatres do |theatre|

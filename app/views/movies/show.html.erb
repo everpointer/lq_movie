@@ -42,14 +42,21 @@
 <div class="movie_sessions">
   <div class="screening_date_nav">
     <div class="tabs">
-      <% 5.times do |i| %>
+      <% 3.times do |i| %>
         <%= screening_date_tag(@current_movie, i) %>
       <% end %>
     </div>
   </div>
-  <div class="theater_choice">
-    <span>选择区域：</span><%= city_area_tag(@current_movie, params[:on_date] || Date.today) %>
-    <%= theatre_tag(@current_movie, @movie_theatres, params) %>
+  <div class="theatre_choice">
+    <span class="area_label">选择区域：</span>
+    <div class="area">
+      <div class="city_areas">
+        <%= city_area_ul_tag(@current_movie, params[:on_date] || Date.today) %>
+      </div>
+      <div class="theatres">
+        <%= theatre_ul_tag(@current_movie, @movie_theatres, params) %>
+      </div>
+    </div>
   </div>
 
   <% unless @movie_sessions.nil? %>
