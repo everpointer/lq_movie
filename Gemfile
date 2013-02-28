@@ -17,10 +17,10 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   unless ENV["CI"]
     gem 'therubyracer', :platform => :ruby
+    gem "less-rails" # less rely on therubyracer
   end
 
   gem 'uglifier', '>= 1.0.3'
-  gem "less-rails"
   gem "twitter-bootstrap-rails"
 end
 
