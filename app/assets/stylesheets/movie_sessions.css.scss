@@ -2,85 +2,161 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#seats_wrapper {
-  background: #fbfbfb;
-  padding: 20px 15px;
-  overflow-y: hidden;
-  position: relative;
+.session_wrapper {
+  width: 950px;
+  margin: 0 auto;
 
-  table {
-    border-spacing: 1;
-    margin: 0 auto;
 
-    th {
-      height: 20px;
-      width: 30px;
-      color: #666;
+  .movie_seats {
+    width: 600px;
+    float: left;
+    padding-right: 30px;
+
+    .screen {
+      margin: 0;
       text-align: center;
-      word-break: keep-all;
-      white-space: nowrap;
-      padding: 6px 5px 6px 1px;
     }
+  }
+  #seats_wrapper {
+    background: #fbfbfb;
+    padding: 20px 15px;
+    overflow-y: hidden;
+    position: relative;
 
-    td {
-      height: 20px;
-      width: 20px;
-      text-align: center;
-      color: #eee;
-      padding: 6px 1px;
-      zoom: 1;
-      overflow: hidden;
+    table {
+      border-spacing: 1;
+      margin: 0 auto;
 
-      span {
-        display: block;
-        height: 19px;
-        width: 19px;
-        border: 1px solid #ddd;
-        background: #fff;
+      th {
+        height: 20px;
+        width: 30px;
+        color: #666;
+        text-align: center;
+        word-break: keep-all;
+        white-space: nowrap;
+        padding: 6px 5px 6px 1px;
+      }
+
+      td {
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        color: #eee;
+        padding: 6px 1px;
         zoom: 1;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-        cursor: pointer;
+        overflow: hidden;
+
+        span {
+          display: block;
+          height: 19px;
+          width: 19px;
+          border: 1px solid #ddd;
+          background: #fff;
+          zoom: 1;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          cursor: pointer;
+        }
       }
-    }
 
-    td.seat_none {
-      background: #fbfafa;
-      color: #eee;
+      td.seat_none {
+        background: #fbfafa;
+        color: #eee;
 
-      span {
-        display: none;
+        span {
+          display: none;
+        }
       }
-    }
 
-    td.seat_single_available, td.seat_double_available {
-      span {
-        background: #fff;
-        cursor: pointer;
+      td.seat_single_available, td.seat_double_available {
+        span {
+          background: #fff;
+          cursor: pointer;
+        }
       }
-    }
 
-    td.seat_not_available {
-      span {
-        background: #ddd;
+      td.seat_not_available {
+        span {
+          background: #ddd;
+        }
       }
-    }
 
-    td.seat_taken {
-      span {
-        background: #5191c7 url(movie_seat_checked.png) no-repeat 2px 4px;
+      td.seat_taken {
+        span {
+          background: #5191c7 url(movie_seat_checked.png) no-repeat 2px 4px;
+          border: 1px solid #5191c7;
+          cursor: pointer;
+        }
+      }
+
+      td.type_locked span {
+        background: #5191c7 url(movie_seat_locked.png) no-repeat 4px 4px;
         border: 1px solid #5191c7;
         cursor: pointer;
       }
     }
+  } // end of seats_wrapper
 
-    td.type_locked span {
-      background: #5191c7 url(movie_seat_locked.png) no-repeat 4px 4px;
-      border: 1px solid #5191c7;
-      cursor: pointer;
+  #session_order {
+    width: 310px;
+    float: left;
+
+    h3 {
+      line-height: 15px;
+      font-size: 13px;
+      margin: 0 0 5px 0;
     }
-  }
+    #order_info {
+      padding: 12px 10px 12px 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      background: #fbfbfb;
 
-} // end of #seat_show
+      #info_choosed_seats {
+        span {
+          padding-right: 2px;
+        }
+      }
+      em {
+        font-style: normal;
+        font-size: 14px;
+        color: #000;
+        padding: 0 10px;
+      }
+      strong {
+        vertical-align: middle;
+        font-size: 24px;
+        color: #000;
+        padding: 0 20px 0 10px;
+      }
+      p {
+        color: #aaa;
+        margin: 0;
+        padding: 5px;
+      }
+      p.sub {
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+        margin-top: 10px;
+      }
+    }
+
+    .btn_big_blue:hover {
+      opacity: .9;
+    }
+    .btn_big_blue {
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.2em;
+      color: #fff;
+      width: 310px;
+      border: 0 none;
+      cursor: pointer;
+      background: #fff url(http://img3.douban.com/pics/movie/ticket_booking/bt_blue2.gif);
+    }
+
+  } // end of .session_order
+}
+
 

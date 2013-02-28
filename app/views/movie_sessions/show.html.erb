@@ -1,43 +1,43 @@
-<h2><%= @movie_theatre.name + "-" + @screening_room.name %></h2>
+<div class="session_wrapper">
+  <h2><%= @movie_theatre.name + "-" + @screening_room.name %></h2>
 
-<h3>座位</h3>
-
-<div id="seats_wrapper">
-  <%= seat_table_tag(@movie_session, @screening_room) %>
-</div>
-
-<div id="session_order">
-  <h3>我的订单</h3>
-  <div id="order_info">
-    <div>
-      <span>影片</span>
-      <%= content_tag :span, @movie_session.movie.title + " " + @movie_session.movie_edition %>
-    </div>
-    <div>
-      <span>时间</span>
-      <%= content_tag :span, @movie_session.screening_date.strftime("%Y-%m-%d %H:%M:%S") %>
-    </div>
-    <div>
-      <span>票价</span>
-      <%= content_tag :span, @movie_session.price.to_s + "元 / 张" %>
-    </div>
-    <div>
-      <span>座位</span>
-      <span id="info_choosed_seats"></span>
-    </div>
-
-    <hr>
-
-    <div>
-      票数<span id="info_tickets_num"></span> 总计<span id="info_expense"></span>
+  <div class="movie_seats">
+    <p class="screen">银幕位置</p>
+    <div id="seats_wrapper">
+      <%= seat_table_tag(@movie_session, @screening_room) %>
     </div>
   </div>
-  <%= simple_form_for SessionOrder.new, url: session_orders_path, method: :post do |f| %>
-    <%= f.hidden_field :choosed_seats, id: :choosed_seats %>
-    <%= f.hidden_field :expense, id: :expense %>
-    <%= f.hidden_field :movie_session_id, id: :movie_sesson_id, value: @movie_session.id  %>
-    <%= f.submit "提交订单" %>
-  <% end %>
-  <%= hidden_field_tag :session_unit_price, @movie_session.price  %>
-</div>
 
+  <div id="session_order">
+    <h3>我的订单</h3>
+    <div id="order_info">
+      <p>
+        <span>影片</span>
+        <%= content_tag :em, @movie_session.movie.title + " " + @movie_session.movie_edition %>
+      </p>
+      <p>
+        <span>时间</span>
+        <%= content_tag :em, @movie_session.screening_date.strftime("%Y-%m-%d %H:%M:%S") %>
+      </p>
+      <p>
+        <span>票价</span>
+        <%= content_tag :em, @movie_session.price.to_s + "元 / 张" %>
+      </p>
+      <p>
+        <span>座位</span>
+        <em id="info_choosed_seats"></em>
+      </p>
+
+      <p class="sub">
+        票数<strong id="info_tickets_num"></strong> 总计<strong id="info_expense"></strong>
+      </p>
+    </div>
+    <%= simple_form_for SessionOrder.new, url: session_orders_path, method: :post do |f| %>
+      <%= f.hidden_field :choosed_seats, id: :choosed_seats %>
+      <%= f.hidden_field :expense, id: :expense %>
+      <%= f.hidden_field :movie_session_id, id: :movie_sesson_id, value: @movie_session.id  %>
+      <%= f.submit "提交订单", class: "btn_big_blue" %>
+    <% end %>
+    <%= hidden_field_tag :session_unit_price, @movie_session.price  %>
+  </div>
+</div>
