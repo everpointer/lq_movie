@@ -1,11 +1,45 @@
 // Place all the styles related to the MovieSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "styles.scss";
+
+.btn_big_blue:hover {
+  opacity: .9;
+}
+.btn_big_blue, a.btn_big_blue, input[type="submit"] {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.2em;
+  color: #fff;
+  width: 310px;
+  border: 0 none;
+  cursor: pointer;
+  background: #fff url(http://img3.douban.com/pics/movie/ticket_booking/bt_blue2.gif);
+  text-align: center;
+  text-decoration: none;
+}
+
+h3 {
+  line-height: 15px;
+  font-size: 13px;
+  margin: 0 0 5px 0;
+}
+
+h4 {
+  line-height: 13px;
+  font-size: 12px;
+  margin: 0 0 5px 0;
+}
 
 .session_wrapper {
   width: 950px;
   margin: 0 auto;
+  color: $light_gray;
 
+  h1, h2, h3, h4, h5, h6 {
+    color: $header_color;
+  }
 
   .movie_seats {
     width: 600px;
@@ -98,15 +132,12 @@
     }
   } // end of seats_wrapper
 
-  #session_order {
+  div.asides {
     width: 310px;
     float: left;
+  }
 
-    h3 {
-      line-height: 15px;
-      font-size: 13px;
-      margin: 0 0 5px 0;
-    }
+  #session_order {
     #order_info {
       padding: 12px 10px 12px 10px;
       border: 1px solid #ddd;
@@ -141,22 +172,9 @@
         margin-top: 10px;
       }
     }
-
-    .btn_big_blue:hover {
-      opacity: .9;
-    }
-    .btn_big_blue {
-      height: 50px;
-      line-height: 50px;
-      font-size: 1.2em;
-      color: #fff;
-      width: 310px;
-      border: 0 none;
-      cursor: pointer;
-      background: #fff url(http://img3.douban.com/pics/movie/ticket_booking/bt_blue2.gif);
-    }
-
   } // end of .session_order
-}
+
+
+} // end of #asides
 
 

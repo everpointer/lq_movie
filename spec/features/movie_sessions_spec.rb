@@ -63,6 +63,12 @@ describe "Movie Sessions" do
 
         click_on "提交订单"
 
+        if page.has_css?("#order_mobile_input")
+          fill_in "order_mobile_input", :with => "18606626486"
+        end
+
+        click_on "在线付款"
+
         current_path.should == session_order_path(SessionOrder.last.id)
       end
 

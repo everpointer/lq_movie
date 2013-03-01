@@ -8,36 +8,51 @@
     </div>
   </div>
 
-  <div id="session_order">
-    <h3>我的订单</h3>
-    <div id="order_info">
-      <p>
-        <span>影片</span>
-        <%= content_tag :em, @movie_session.movie.title + " " + @movie_session.movie_edition %>
-      </p>
-      <p>
-        <span>时间</span>
-        <%= content_tag :em, @movie_session.screening_date.strftime("%Y-%m-%d %H:%M:%S") %>
-      </p>
-      <p>
-        <span>票价</span>
-        <%= content_tag :em, @movie_session.price.to_s + "元 / 张" %>
-      </p>
-      <p>
-        <span>座位</span>
-        <em id="info_choosed_seats"></em>
-      </p>
+  <div class="asides">
+    <div id="session_order">
+      <h3>我的订单</h3>
+      <div id="order_info">
+        <p>
+          <span>影片</span>
+          <%= content_tag :em, @movie_session.movie.title + " " + @movie_session.movie_edition %>
+        </p>
+        <p>
+          <span>时间</span>
+          <%= content_tag :em, @movie_session.screening_date.strftime("%Y-%m-%d %H:%M:%S") %>
+        </p>
+        <p>
+          <span>票价</span>
+          <%= content_tag :em, @movie_session.price.to_s + "元 / 张" %>
+        </p>
+        <p>
+          <span>座位</span>
+          <em id="info_choosed_seats"></em>
+        </p>
 
-      <p class="sub">
-        票数<strong id="info_tickets_num"></strong> 总计<strong id="info_expense"></strong>
-      </p>
-    </div>
-    <%= simple_form_for SessionOrder.new, url: session_orders_path, method: :post do |f| %>
-      <%= f.hidden_field :choosed_seats, id: :choosed_seats %>
-      <%= f.hidden_field :expense, id: :expense %>
-      <%= f.hidden_field :movie_session_id, id: :movie_sesson_id, value: @movie_session.id  %>
-      <%= f.submit "提交订单", class: "btn_big_blue" %>
-    <% end %>
-    <%= hidden_field_tag :session_unit_price, @movie_session.price  %>
-  </div>
+        <p class="sub">
+          票数<strong id="info_tickets_num"></strong> 总计<strong id="info_expense"></strong>
+        </p>
+      </div>
+<%= simple_form_for SessionOrder.new, url: session_orders_path, method: :post do |f| %>
+        <%= f.hidden_field :choosed_seats, id: :choosed_seats %>
+        <%= f.hidden_field :expense, id: :expense %>
+        <%= f.hidden_field :movie_session_id, id: :movie_sesson_id, value: @movie_session.id  %>
+        <a href="#" class="btn_big_blue">提交订单</a>
+        <%= hidden_field_tag :session_unit_price, @movie_session.price  %>
+    </div> <!-- end of #session_oder !-->
+
+    <div class="payment">
+      <div class="mobile">
+        <h3>手机号</h3>
+        <p>
+          <h4>将换票凭证短信发往以下手机</h4>
+          <%= f.text_field :mobile, id: :order_mobile_input %>
+          <input type="button" value="保存" class="mobile_save">
+        </p>
+      </div> 
+      <%= f.submit "在线付款", class: "btn_big_blue" %>
+  <% end %>
+    </div> <!-- end of .payment -->
+  </div> <!-- end of .asides -->
+  
 </div>
