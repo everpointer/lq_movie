@@ -15,6 +15,22 @@ $ ->
             seat.removeClass("seat_double_available").addClass("seat_taken")
             add_ticket(seat)
 
+    $("#btn_mobile_save").click ->
+        $("#mobile_box_input").css("display", "none");
+        $("#mobile_box_label").css("display", "block");
+        $("#order_mobile_label").text $("#order_mobile_input").val()
+        $("#session_order_mobile").val $("#order_mobile_input").val()
+
+    $("#btn_mobile_modify").click ->
+        $("#mobile_box_label").css("display", "none")
+        $("#mobile_box_input").css("display", "block")
+        $("#order_mobile_input").val $("#session_order_mobile").val()
+
+    $("#submit_order").click (event)->
+        event.preventDefault()
+        $(this).text "订单生成中..."
+        $(".payment").css("display", "block")
+
     add_ticket = (seat) ->
         session_unit_price = $("#session_unit_price").val()
 

@@ -11,23 +11,7 @@
  *= require bootstrap_and_overrides
  *= require_self
  */
-@import "styles.scss";
-
-/* clearfix */
-.clear {
-  clear: both;
-}
- 
-ul, ol {
-  list-style: none;
-  margin: 0;
-}
-
-.nav-logo a {
-    color: #248DCD;
-    font: 30px sans-serif;
-    text-decoration: none;
-}
+@import "common.scss";
 
 span.rating-stars50 {
     background-position: 0 0;

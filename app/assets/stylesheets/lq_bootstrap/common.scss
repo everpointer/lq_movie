@@ -1,0 +1,21 @@
+/** COMMON CLASSES **/
+.left { float:left }
+.right { float:right!important }
+.append-bottom-10 { margin-bottom:10px }
+.append-bottom-20 { margin-bottom:20px }
+.prepend-top-10 { margin-top:10px }
+.prepend-top-20 { margin-top:20px }
+.padded { padding:20px }
+.ipadded { padding:20px!important }
+.lborder { border-left:1px solid #eee }
+.underlined_link { text-decoration: underline; }
+.hint { font-style: italic; color: #999; }
+.light { color: #888 }
+.tiny { font-weight: normal }
+
+/** by loayufu **/
+
+/** FORMS **/
+input[type='text'] {
+  @include border-radius(0);
+}

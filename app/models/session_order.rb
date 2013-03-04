@@ -13,6 +13,7 @@ class SessionOrder < ActiveRecord::Base
 
   def set_order_id
     self.order_id = self.created_at.to_i.to_s + "%06d" % SecureRandom.random_number(999999)
+    self.save!
   end
 
 end

@@ -61,15 +61,28 @@ describe "Movie Sessions" do
         find("#info_tickets_num").text.should be_include("1") 
         find("#info_expense").text.should be_include(movie_session.price.to_s)
 
-        click_on "提交订单"
+        find("#submit_order").click
+        find("#submit_order").text.should == "订单生成中..."
+        # find(".confirm_area").should_not be_visible
+        find(".payment").should be_visible
 
-        if page.has_css?("#order_mobile_input")
+        if find("#mobile_box_input").visible?
           fill_in "order_mobile_input", :with => "18606626486"
+          click_on "保存"
+
+          find("#mobile_box_label").should be_visible 
+          find("#session_order_mobile").value.should == "18606626486"
+          click_on "修改"
+
+          fill_in "order_mobile_input", :with => "18606626666"
+          click_on "保存"
+          find("#session_order_mobile").value.should == "18606626666"
         end
 
         click_on "在线付款"
 
         current_path.should == session_order_path(SessionOrder.last.id)
+        SessionOrder.last.mobile.should == "18606626666"
       end
 
     end

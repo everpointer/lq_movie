@@ -1,8 +1,16 @@
 // Place all the styles related to the MovieSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "styles.scss";
+@import "lq_bootstrap.scss";
 
+a {
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #37a;
+  }
+}
 .btn_big_blue:hover {
   opacity: .9;
 }
@@ -49,6 +57,7 @@ h4 {
     .screen {
       margin: 0;
       text-align: center;
+      border-bottom: 1px solid $light_border;
     }
   }
   #seats_wrapper {
@@ -138,6 +147,8 @@ h4 {
   }
 
   #session_order {
+    margin-bottom: 20px;
+
     #order_info {
       padding: 12px 10px 12px 10px;
       border: 1px solid #ddd;
@@ -174,6 +185,36 @@ h4 {
     }
   } // end of .session_order
 
+  .confirm_area {
+    p {
+      margin: 10px 0 10px 0;
+    }
+  }
+
+  .payment {
+    display: none;
+    
+    .mobile {
+      margin-bottom: 20px;
+      .mobile_box {
+        border: 1px solid $light_border;
+        padding: 10px;
+
+        input[type=text] {
+          margin: 0;
+        }
+      }
+      #mobile_box_label {
+        display: none;
+      }
+
+      em {
+        font-style: normal;
+        font-size: 14px;
+        color: #000;
+      }
+    }
+  }
 
 } // end of #asides
 

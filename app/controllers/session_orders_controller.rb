@@ -2,7 +2,7 @@ class SessionOrdersController < ApplicationController
   def create
     @session_order = SessionOrder.new(params[:session_order])
     @session_order.choosed_seats = JSON.parse(@session_order[:choosed_seats])
-    if @session_order.save
+    if @session_order.save!
       redirect_to session_order_path(@session_order)
     else
       redirect_to :back
