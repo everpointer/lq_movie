@@ -35,7 +35,7 @@
       </div>
     </div> <!-- end of #session_oder !-->
     <div class="confirm_area">
-      <a href="#" class="btn_big_blue" id="submit_order">提交订单</a>
+      <a href="#" class="btn-big btn-big-blue" id="submit_order">提交订单</a>
       <p>生成订单后，将为您保留座位15分钟，请根据订单付款。
 出票成功后将不予退换。</p>
     </div>
@@ -46,7 +46,7 @@
         <div class="mobile_box" id="mobile_box_input">
           <p>将换票凭证短信发往以下手机</p>
           <input type="text"  id="order_mobile_input">
-          <input type="button" class="btn" value="保存" id="btn_mobile_save">
+          <input type="button" class="btn btn-white" value="保存" id="btn_mobile_save">
         </div>
         <div class="mobile_box" id="mobile_box_label">
           <p>支付成功后，确认码会发送到此手机</p>
@@ -60,7 +60,7 @@
             <%= f.hidden_field :expense, id: :expense %>
             <%= f.hidden_field :movie_session_id, id: :movie_sesson_id, value: @movie_session.id  %>
             <%= f.hidden_field :mobile %>
-            <%= f.submit "在线付款", class: "btn_big_blue" %>
+            <%= f.submit "在线付款", class: "btn-big btn-big-blue" %>
             <%= hidden_field_tag :session_unit_price, @movie_session.price  %>
           <% end %>
       </div> <!-- end of .pay-area -->

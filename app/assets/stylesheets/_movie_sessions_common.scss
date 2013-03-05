@@ -1,0 +1,136 @@
+h1, h2, h3, h4, h5, h6 {
+  color: $header_color;
+}
+h3 {
+  line-height: 15px;
+  font-size: 13px;
+  margin: 0 0 5px 0;
+}
+h4 {
+  line-height: 13px;
+  font-size: 12px;
+  margin: 0 0 5px 0;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #37a;
+  }
+}
+em {
+  font-style: normal;
+  font-size: 14px;
+  color: #000;
+  padding: 0 10px;
+}
+strong {
+  vertical-align: middle;
+  font-size: 24px;
+  color: #000;
+  padding: 0 20px 0 10px;
+}
+p {
+  color: #aaa;
+  margin: 0;
+  padding: 5px;
+}
+p.sub {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+.btn-big, a.btn-big, input[type="submit"] {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.2em;
+  color: #fff;
+  width: 310px;
+  border: 0 none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  @include border-radius(3px);
+  &.btn-big-blue {
+    @include linear-gradient(#3AA1E3, #217AC4);
+    @include box-shadow(inset 1px 2px 0px #82C4FD);
+  }
+  &:hover {
+    opacity: .9;
+  }
+}
+.seat_table {
+  border-spacing: 1;
+  margin: 0 auto;
+
+  th {
+    height: 20px;
+    width: 30px;
+    color: #666;
+    text-align: center;
+    word-break: keep-all;
+    white-space: nowrap;
+    padding: 6px 5px 6px 1px;
+  }
+
+  td {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    color: #eee;
+    padding: 6px 1px;
+    zoom: 1;
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: 19px;
+      width: 19px;
+      border: 1px solid #ddd;
+      background: #fff;
+      zoom: 1;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+
+  td.seat_none {
+    background: #fbfafa;
+    color: #eee;
+
+    span {
+      display: none;
+    }
+  }
+
+  td.seat_single_available, td.seat_double_available {
+    span {
+      background: #fff;
+      cursor: pointer;
+    }
+  }
+
+  td.seat_not_available {
+    span {
+      background: #ddd;
+    }
+  }
+
+  td.seat_taken {
+    span {
+      background: #5191c7 url(movie_seat_checked.png) no-repeat 2px 4px;
+      border: 1px solid #5191c7;
+      cursor: pointer;
+    }
+  }
+
+  td.type_locked span {
+    background: #5191c7 url(movie_seat_locked.png) no-repeat 4px 4px;
+    border: 1px solid #5191c7;
+    cursor: pointer;
+  }
+}

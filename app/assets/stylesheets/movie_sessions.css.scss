@@ -1,221 +1,82 @@
 // Place all the styles related to the MovieSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "lq_bootstrap.scss";
-
-a {
-  text-decoration: none;
-  &:hover {
-    color: #fff;
-    text-decoration: none;
-    background: #37a;
-  }
-}
-.btn_big_blue:hover {
-  opacity: .9;
-}
-.btn_big_blue, a.btn_big_blue, input[type="submit"] {
-  display: block;
-  height: 50px;
-  line-height: 50px;
-  font-size: 1.2em;
-  color: #fff;
-  width: 310px;
-  border: 0 none;
-  cursor: pointer;
-  background: #fff url(http://img3.douban.com/pics/movie/ticket_booking/bt_blue2.gif);
-  text-align: center;
-  text-decoration: none;
-}
-
-h3 {
-  line-height: 15px;
-  font-size: 13px;
-  margin: 0 0 5px 0;
-}
-
-h4 {
-  line-height: 13px;
-  font-size: 12px;
-  margin: 0 0 5px 0;
-}
+@import "lq_bootstrap";
+@import "movie_sessions_common";
 
 .session_wrapper {
   width: 950px;
   margin: 0 auto;
   color: $light_gray;
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    color: $header_color;
+.movie_seats {
+  width: 600px;
+  float: left;
+  padding-right: 30px;
+
+  .screen {
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid $light_border;
   }
-
-  .movie_seats {
-    width: 600px;
-    float: left;
-    padding-right: 30px;
-
-    .screen {
-      margin: 0;
-      text-align: center;
-      border-bottom: 1px solid $light_border;
-    }
+}
+#seats_wrapper {
+  background: #fbfbfb;
+  padding: 20px 15px;
+  overflow-y: hidden;
+  position: relative;
+  table {
+    @extend .seat_table;
   }
-  #seats_wrapper {
-    background: #fbfbfb;
-    padding: 20px 15px;
-    overflow-y: hidden;
-    position: relative;
+} // end of seats_wrapper
 
-    table {
-      border-spacing: 1;
-      margin: 0 auto;
+div.asides {
+  width: 310px;
+  float: left;
+}
 
-      th {
-        height: 20px;
-        width: 30px;
-        color: #666;
-        text-align: center;
-        word-break: keep-all;
-        white-space: nowrap;
-        padding: 6px 5px 6px 1px;
-      }
+#session_order {
+  margin-bottom: 20px;
+}
+#order_info {
+  padding: 12px 10px 12px 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  background: #fbfbfb;
+}
 
-      td {
-        height: 20px;
-        width: 20px;
-        text-align: center;
-        color: #eee;
-        padding: 6px 1px;
-        zoom: 1;
-        overflow: hidden;
-
-        span {
-          display: block;
-          height: 19px;
-          width: 19px;
-          border: 1px solid #ddd;
-          background: #fff;
-          zoom: 1;
-          -webkit-border-radius: 2px;
-          -moz-border-radius: 2px;
-          border-radius: 2px;
-          cursor: pointer;
-        }
-      }
-
-      td.seat_none {
-        background: #fbfafa;
-        color: #eee;
-
-        span {
-          display: none;
-        }
-      }
-
-      td.seat_single_available, td.seat_double_available {
-        span {
-          background: #fff;
-          cursor: pointer;
-        }
-      }
-
-      td.seat_not_available {
-        span {
-          background: #ddd;
-        }
-      }
-
-      td.seat_taken {
-        span {
-          background: #5191c7 url(movie_seat_checked.png) no-repeat 2px 4px;
-          border: 1px solid #5191c7;
-          cursor: pointer;
-        }
-      }
-
-      td.type_locked span {
-        background: #5191c7 url(movie_seat_locked.png) no-repeat 4px 4px;
-        border: 1px solid #5191c7;
-        cursor: pointer;
-      }
-    }
-  } // end of seats_wrapper
-
-  div.asides {
-    width: 310px;
-    float: left;
+#info_choosed_seats {
+  span {
+    padding-right: 2px;
   }
-
-  #session_order {
-    margin-bottom: 20px;
-
-    #order_info {
-      padding: 12px 10px 12px 10px;
-      border: 1px solid #ddd;
-      margin-bottom: 20px;
-      background: #fbfbfb;
-
-      #info_choosed_seats {
-        span {
-          padding-right: 2px;
-        }
-      }
-      em {
-        font-style: normal;
-        font-size: 14px;
-        color: #000;
-        padding: 0 10px;
-      }
-      strong {
-        vertical-align: middle;
-        font-size: 24px;
-        color: #000;
-        padding: 0 20px 0 10px;
-      }
-      p {
-        color: #aaa;
-        margin: 0;
-        padding: 5px;
-      }
-      p.sub {
-        border-top: 1px solid #ddd;
-        padding-top: 20px;
-        margin-top: 10px;
-      }
-    }
-  } // end of .session_order
-
-  .confirm_area {
-    p {
-      margin: 10px 0 10px 0;
-    }
+}
+.confirm_area {
+  p {
+    margin: 10px 0 10px 0;
   }
+}
 
-  .payment {
-    display: none;
-    
-    .mobile {
-      margin-bottom: 20px;
-      .mobile_box {
-        border: 1px solid $light_border;
-        padding: 10px;
-
-        input[type=text] {
-          margin: 0;
-        }
-      }
-      #mobile_box_label {
-        display: none;
-      }
-
-      em {
-        font-style: normal;
-        font-size: 14px;
-        color: #000;
-      }
-    }
+.payment {
+  display: none;
+  em {
+    font-style: normal;
+    font-size: 14px;
+    color: #000;
   }
-
-} // end of #asides
+}
+.mobile {
+  margin-bottom: 20px;
+}
+.mobile_box {
+  border: 1px solid $light_border;
+  padding: 10px;
+  input[type=text] {
+    margin: 0;
+  }
+}
+#mobile_box_label {
+  display: none;
+}
 
 
