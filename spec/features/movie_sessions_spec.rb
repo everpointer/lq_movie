@@ -61,6 +61,14 @@ describe "Movie Sessions" do
         find("#info_tickets_num").text.should be_include("1") 
         find("#info_expense").text.should be_include(movie_session.price.to_s)
 
+        # remove the ticket
+        @td_first_seat.click
+        find("#info_choosed_seats").text.should_not be_include(@td_first_seat[:title])
+        find("#info_tickets_num").text.should be_include("0") 
+        find("#info_expense").text.should be_include("0.0")
+
+        # finally re-add the seat
+        @td_first_seat.click
         find("#submit_order").click
         find("#submit_order").text.should == "订单生成中..."
         # find(".confirm_area").should_not be_visible

@@ -6,6 +6,7 @@ $ ->
         seat = $(this)
         if seat.hasClass("seat_taken")
             seat.removeClass("seat_taken").addClass(seat.attr("ori_class"))
+            remove_ticket(seat)
         else if $(".seat_taken").length is 4
             alert("一次最多选择4个座位")
         else if seat.hasClass("seat_single_available")
@@ -34,16 +35,31 @@ $ ->
     add_ticket = (seat) ->
         session_unit_price = $("#session_unit_price").val()
 
-        set_order_info(seat, session_unit_price)
+        add_order_info(seat, session_unit_price)
         fill_in_order_form(seat)
 
-    set_order_info = (seat, session_unit_price) ->
+    remove_ticket = (seat) ->
+        session_unit_price = $("#session_unit_price").val()
+        remove_order_info(seat, session_unit_price)
+        fill_in_order_form(seat)
+
+    add_order_info = (seat, session_unit_price) ->
         $("#info_choosed_seats").append("<span>" + seat.attr("title") + "<span>")
         tickets_num = parseInt($("#info_tickets_num").text())
         tickets_num = if isNaN(tickets_num) then 1 else tickets_num + 1
         $("#info_tickets_num").text( tickets_num )
         total_expense = tickets_num * parseFloat(session_unit_price)
         $("#info_expense").text( total_expense.toFixed(1) )
+
+    remove_order_info = (seat, session_unit_price) ->
+        $("#info_choosed_seats span").each (index, choosed_seat) ->
+            choosed_seat = $(choosed_seat)
+            if choosed_seat.text() is seat.attr("title")
+                choosed_seat.remove() 
+                tickets_num = parseInt($("#info_tickets_num").text()) - 1
+                $("#info_tickets_num").text( tickets_num )
+                total_expense = tickets_num * parseFloat(session_unit_price)
+                $("#info_expense").text( total_expense.toFixed(1) )
 
     fill_in_order_form = (seat)->
         seats = JSON.parse $("#choosed_seats").val()

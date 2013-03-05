@@ -2,6 +2,10 @@
 
 // BOOTSTRAP
 @import "bootstrap";
+@import "bootstrap/responsive-utilities";
+@import "bootstrap/responsive-1200px-min";
+
+@import "font-awesome";
 
 @import "lq_bootstrap/variables.scss";
 @import "lq_bootstrap/mixins.scss";

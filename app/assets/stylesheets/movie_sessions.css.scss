@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "lq_bootstrap/variables.scss";
 @import "lq_bootstrap/mixins.scss";
-@import "movie_sessions_common";
+@import "common/_movie_sessions.scss";
 
 .session_wrapper {
   width: 950px;
