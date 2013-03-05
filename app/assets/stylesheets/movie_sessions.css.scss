@@ -1,7 +1,8 @@
 // Place all the styles related to the MovieSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "lq_bootstrap";
+@import "lq_bootstrap/variables.scss";
+@import "lq_bootstrap/mixins.scss";
 @import "movie_sessions_common";
 
 .session_wrapper {
