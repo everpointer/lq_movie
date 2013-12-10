@@ -75,22 +75,22 @@ describe "Movie Sessions" do
         find(".payment").should be_visible
 
         if find("#mobile_box_input").visible?
-          fill_in "order_mobile_input", :with => "18606626486"
+          fill_in "order_mobile_input", :with => "18888888888"
           click_on "保存"
 
           find("#mobile_box_label").should be_visible 
-          find("#session_order_mobile").value.should == "18606626486"
+          find("#session_order_mobile").value.should == "18888888888"
           click_on "修改"
 
-          fill_in "order_mobile_input", :with => "18606626666"
+          fill_in "order_mobile_input", :with => "18888888888"
           click_on "保存"
-          find("#session_order_mobile").value.should == "18606626666"
+          find("#session_order_mobile").value.should == "18888888888"
         end
 
         click_on "在线付款"
 
         current_path.should == session_order_path(SessionOrder.last.id)
-        SessionOrder.last.mobile.should == "18606626666"
+        SessionOrder.last.mobile.should == "18888888888"
       end
 
     end
